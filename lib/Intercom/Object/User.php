@@ -35,6 +35,8 @@ class User implements FormatableInterface
     /**
      * @param integer $userId
      * @param string  $email
+     *
+     * @throws \Intercom\Exception\UserException
      */
     public function __construct($userId = null, $email = null)
     {

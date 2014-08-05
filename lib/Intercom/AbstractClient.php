@@ -43,16 +43,7 @@ abstract class AbstractClient
         $this->client = $client;
     }
 
-    /**
-     * Use the curl client to make an http call
-     *
-     * @param  RequestInterface $request A request related with intercom API
-     *
-     * @return GuzzleHttp\Message\Response
-     *
-     * @throws HttpClientException
-     */
-    public function send(RequestInterface $request)
+    public function send(RequestInterface $request, $debug=false)
     {
         $options = [
             'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json'],
@@ -62,6 +53,15 @@ abstract class AbstractClient
 
         if ('GET' !== $request->getMethod()) {
             $options = array_merge($options, ['json' => $request->getBody()]);
+        }
+
+        if ($debug ) {
+            D([
+                $request->getMethod(),
+                $request->getUrl(),
+                $options,
+                json_encode($request->getBody(), JSON_PRETTY_PRINT)
+            ]);
         }
 
         try {
