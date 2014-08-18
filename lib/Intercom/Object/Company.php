@@ -49,6 +49,10 @@ class Company implements FormatableInterface
      */
     private $name;
     /**
+     * @var string
+     */
+    private $plan;
+    /**
      * @var array
      */
     private $customAttributes;
@@ -109,7 +113,8 @@ class Company implements FormatableInterface
             'custom_attributes'         => $this->customAttributes,
             // 'session_count'             => $this->sessionCount,
             'monthly_spend'             => $this->monthlySpend,
-            'user_count'                => $this->userCount
+            'user_count'                => $this->userCount,
+            'plan'                      => $this->plan
         ];
     }
 
@@ -227,6 +232,20 @@ class Company implements FormatableInterface
     }
 
     /**
+     * Set Plan
+     *
+     * @param $plan
+     *
+     * @return $this
+     */
+    public function setPlan($plan)
+    {
+        $this->plan = $plan;
+
+        return $this;
+    }
+
+    /**
      * Get Name
      *
      * @return string
@@ -234,6 +253,16 @@ class Company implements FormatableInterface
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Get Plan
+     *
+     * @return string
+     */
+    public function getPlan()
+    {
+        return $this->plan;
     }
 
     /**
