@@ -112,8 +112,6 @@ class Company implements FormatableInterface
             'name'                      => $this->name,
             'custom_attributes'         => $this->customAttributes,
             // 'session_count'             => $this->sessionCount,
-            'monthly_spend'             => $this->monthlySpend,
-            'user_count'                => $this->userCount,
             'plan'                      => $this->plan
         ];
     }
