@@ -31,6 +31,7 @@ class User implements FormatableInterface
     private $avatarUrl;
     private $companyIds;
     private $vipTimestamp;
+    private $company;
 
     /**
      * @param integer $userId
@@ -60,11 +61,12 @@ class User implements FormatableInterface
             'email'                    => $this->email,
             'name'                     => $this->name,
             'created_at'               => $this->createdAt,
-            'last_seen_ip'             => $this->lastSeenIp,
-            'custom_attributes'        => $this->customAttributes,
-            'last_seen_user_agent'     => $this->lastSeenUserAgent,
-            'last_request_at'          => $this->lastRequestAt,
-            'unsubscribed_from_emails' => $this->unsubscribedFromEmails,
+            'company'                  => $this->company
+            //'last_seen_ip'             => $this->lastSeenIp,
+            //'custom_attributes'        => $this->customAttributes,
+            //'last_seen_user_agent'     => $this->lastSeenUserAgent,
+            //'last_request_at'          => $this->lastRequestAt,
+            //'unsubscribed_from_emails' => $this->unsubscribedFromEmails,
 
             // @todo Disable the following field temporarily
 
@@ -482,6 +484,33 @@ class User implements FormatableInterface
     public function getCompanyIds()
     {
         return $this->companyIds;
+    }
+
+
+    /**
+     * Set CompanyIds
+     *
+     * @param array $companyArray
+     *
+     * @internal param mixed $companyIds
+     *
+     * @return $this
+     */
+    public function setCompany(array $companyArray)
+    {
+        $this->company = $companyArray;
+
+        return $this;
+    }
+
+    /**
+     * Get CompanyIds
+     *
+     * @return mixed
+     */
+    public function getCompany()
+    {
+        return $this->company;
     }
 
     /**
