@@ -105,7 +105,7 @@ class Company implements FormatableInterface
         return [
             // 'type'                      => $this->type,
             // 'id'                        => $this->id,
-            // 'created_at'                => $this->createdAt,
+            'created_at'                => $this->createdAt,
             // 'remote_created_at'         => $this->remoteCreatedAt,
             // 'updated_at'                => $this->updatedAt,
             'company_id'                => $this->companyId,
@@ -423,7 +423,6 @@ class Company implements FormatableInterface
      */
     public function setPlanId($planId)
     {
-        D(["plain_id", $planId]);
         $this->planId = $planId;
 
         return $this;
